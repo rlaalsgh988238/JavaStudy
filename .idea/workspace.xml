@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2deeccaf-659c-424f-a9df-ecfc40158698" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/study/blueberry/DefualtClass.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/study/donut/DefualtClass.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 4b51861899799ac36456a9c7b55ef2284d785fbf
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +113,11 @@
       <workItem from="1721018461719" duration="390000" />
       <workItem from="1721039110689" duration="7857000" />
       <workItem from="1721221615636" duration="67000" />
+<<<<<<< HEAD
       <workItem from="1722905630188" duration="2194000" />
+=======
+      <workItem from="1722905630188" duration="1520000" />
+>>>>>>> 4b51861899799ac36456a9c7b55ef2284d785fbf
     </task>
     <servers />
   </component>
