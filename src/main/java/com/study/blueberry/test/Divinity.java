@@ -3,21 +3,24 @@ package com.study.blueberry.test;
 public class Divinity {
     public static void main(String[] args) {
 
-        Ipan ipan = new Ipan(4800, 900, 700);
-        Beast beast = new Beast(5000, 2900, 3100);
+        Character ipan = new Ipan(4800, 900, 700);
+        Character beast = new Beast(5000, 2900, 3100);
 
-        ipan.ShowStatus();
+        ipan.showStatus();
         System.out.println();
-        beast.ShowStatus();
+        beast.showStatus();
     }
 }
 
-class Character {
+// 인터페이스 정의
+interface Showable {
+    void showStatus();
+}
+
+abstract class Character implements Showable {
     protected int hp;
     protected int magicDefence;
     protected int physicalDefence;
-    protected int magicAttack;
-    protected int physicAttack;
 
     public Character(int hp, int magicDefence, int physicalDefence) {
         this.hp = hp;
@@ -25,20 +28,14 @@ class Character {
         this.physicalDefence = physicalDefence;
     }
 
-    public int MagicAttack() {
+    public int calculateMagicAttack(int magicAttack) {
         int magic = magicDefence - magicAttack;
-        if (magic < 0) {
-            return magic + hp;
-        }
-        return magic;
+        return magic < 0 ? magic + hp : magic;
     }
 
-    public int PhysicAttack() {
+    public int calculatePhysicAttack(int physicAttack) {
         int physic = physicalDefence - physicAttack;
-        if (physic < 0) {
-            return physic + hp;
-        }
-        return physic;
+        return physic < 0 ? physic + hp : physic;
     }
 
     public int getHp() {
@@ -48,32 +45,34 @@ class Character {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    // 추상 클래스가 Showable 인터페이스의 showStatus 메서드를 구현하지 않음.
+    // 이를 구체적인 하위 클래스가 구현하게 함.
 }
 
 class Ipan extends Character {
 
     public Ipan(int hp, int magicDefence, int physicalDefence) {
         super(hp, magicDefence, physicalDefence);
-        this.hp = 4800;
-        this.magicDefence = 900;
-        this.physicalDefence = 700;
     }
 
-    void ShowStatus() {
+    @Override
+    public void showStatus() {
         System.out.println("Ipan");
         System.out.println("HP: " + hp);
         System.out.println("Magic Defence: " + magicDefence);
         System.out.println("Physical Defence: " + physicalDefence);
     }
 }
+
 class Beast extends Character {
+
     public Beast(int hp, int magicDefence, int physicalDefence) {
         super(hp, magicDefence, physicalDefence);
-        this.hp = 5000;
-        this.magicDefence = 2900;
-        this.physicalDefence = 3100;
     }
-    void ShowStatus() {
+
+    @Override
+    public void showStatus() {
         System.out.println("Beast");
         System.out.println("HP: " + hp);
         System.out.println("Magic Defence: " + magicDefence);
